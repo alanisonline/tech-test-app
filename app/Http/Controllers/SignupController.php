@@ -19,6 +19,13 @@ class SignupController extends Controller
             'image_file' => 'nullable',
         ]);
 
+        $signup = new Signup;
+        $signup->full_name = $request->input('full_name');
+        $signup->email = $request->input('email_address');
+        $signup->original_image = $request->input('image_file');
+        $signup->profile_image = $request->input('image_file');
+        $signup->save();
+
         $firstName = explode(' ', $request['full_name'])[0];
         return view('success', ['name' => $firstName]);
     }
