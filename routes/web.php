@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('store', function(Request $request) {
+    $firstName = explode(' ', $request['full-name'])[0];
+    return view('success', ['name' => $firstName]);
+});
+
+// Route::post('store', [Controller::class, 'store']);
