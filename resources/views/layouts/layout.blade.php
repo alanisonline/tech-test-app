@@ -13,9 +13,7 @@
 <body class="antialiased">
     <div class="container">
         <div class="panel">
-
             @yield('signup')
-
         </div>
     </div>
 </body>

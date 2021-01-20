@@ -28,6 +28,7 @@
         <input type="file" name="image-file" id="image-file">
     </div>
     <div class="form-input">
+        @include('flashes')
         <input type="submit" value="Submit">
     </div>
 </form>
