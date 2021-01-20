@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\SignupController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('store', [Controller::class, 'store']);
+Route::get('store', [SignupController::class, 'store']);
 
 // Route::post('store', [Controller::class, 'store']);
