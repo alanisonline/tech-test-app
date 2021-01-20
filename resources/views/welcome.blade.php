@@ -6,26 +6,25 @@
 <form action="store" method="get">
     @csrf
     <div class="form-input">
-        <label for="full-name">What’s your name? *
+        <label for="full_name">What’s your name? *
             <br/>
             <span>Lorem ipsum dolor sit amet, lorem ipsum dolor.</span>
         </label>
-        <input type="text" name="full-name" id="full-name" placeholder="Jane Bloggs">
+        <input type="text" name="full_name" id="full_name" placeholder="Jane Bloggs">
     </div>
     <div class="form-input">
         <label for="email">Email address *
             <br/>
             <span>Lorem ipsum dolor sit amet, lorem ipsum dolor.</span>
         </label>
-        <input type="email" name="email-address" id="email-address">
+        <input type="email" name="email_address" id="email_address">
     </div>
     <div class="form-input">
-
-        <label for="image-file">Profile photo
+        <label for="image_file">Profile photo
             <br/>
             <span>Lorem ipsum dolor sit amet, lorem ipsum dolor.</span>
         </label>
-        <input type="file" name="image-file" id="image-file">
+        <input type="file" name="image_file" id="image_file">
     </div>
     <div class="form-input">
         @include('flashes')

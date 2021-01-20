@@ -14,12 +14,12 @@ class SignupController extends Controller
     function store(Request $request)
     {
         $this->validate($request, [
-            'full-name' => 'required|string|regex:/^([^0-9]*)$/',
-            'email-address' => 'required|email',
-            'image-file' => 'nullable',
+            'full_name' => 'required|string|regex:/^([^0-9]*)$/',
+            'email_address' => 'required|email',
+            'image_file' => 'nullable',
         ]);
 
-        $firstName = explode(' ', $request['full-name'])[0];
+        $firstName = explode(' ', $request['full_name'])[0];
         return view('success', ['name' => $firstName]);
     }
 }

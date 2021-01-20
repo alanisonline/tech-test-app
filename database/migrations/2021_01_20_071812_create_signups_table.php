@@ -15,10 +15,10 @@ class CreateSignupsTable extends Migration
     {
         Schema::create('signups', function (Blueprint $table) {
             $table->id();
-            $table->string('full-name');
+            $table->string('full_name');
             $table->string('email')->unique();
-            $table->string('original-image');
-            $table->string('profile-image');
+            $table->string('original_image');
+            $table->string('profile_image');
             $table->timestamps();
         });
     }
