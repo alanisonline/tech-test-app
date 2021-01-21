@@ -7,7 +7,7 @@
 
     <title>Signup</title>
 
-    <link href="{{ URL::asset('/css/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ URL::asset('sheltered-ravine-04730/css/style.css') }}" rel="stylesheet" type="text/css">
 </head>
 
 <body class="antialiased">
@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <script src="{{ URL::asset('/js/spinner.js') }}"></script>
+    <script src="{{ URL::asset('sheltered-ravine-04730/js/spinner.js') }}"></script>
 </body>
 
 </html>
