@@ -25,7 +25,7 @@ class SignupController extends Controller
         $signup->email_address = $request->input('email_address');
         $imageController = new ImageController();
         $signup->original_image = $imageController->storeImageAndGetPath($request);
-        $signup->profile_image = $imageController->storeResizedImageAndGetPath($request);
+        $signup->profile_image = $imageController->storeImageAndGetPath($request, true);
 
         $signup->save();
 
