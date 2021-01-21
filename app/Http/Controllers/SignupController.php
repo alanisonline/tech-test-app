@@ -15,13 +15,13 @@ class SignupController extends Controller
     {
         $this->validate($request, [
             'full_name' => 'required|string|regex:/^([^0-9]*)$/',
-            'email_address' => 'required|email|unique:signups,email',
+            'email_address' => 'required|email|unique:signups,email_address',
             'image_file' => 'nullable|max:1999',
         ]);
 
         $signup = new Signup;
         $signup->full_name = $request->input('full_name');
-        $signup->email = $request->input('email_address');
+        $signup->email_address = $request->input('email_address');
 
         $storedImageName = $this->storeImageAndRetrieveHashName($request);
 

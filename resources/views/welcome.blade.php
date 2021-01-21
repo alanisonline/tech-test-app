@@ -13,7 +13,7 @@
         <input type="text" name="full_name" id="full_name" placeholder="Jane Bloggs">
     </div>
     <div class="form-input">
-        <label for="email">Email address *
+        <label for="email_address">Email address *
             <br/>
             <span>Lorem ipsum dolor sit amet, lorem ipsum dolor.</span>
         </label>
