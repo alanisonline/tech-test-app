@@ -16,20 +16,43 @@ class SignupController extends Controller
         $this->validate($request, [
             'full_name' => 'required|string|regex:/^([^0-9]*)$/',
             'email_address' => 'required|email|unique:signups,email',
-            'image_file' => 'nullable',
+            'image_file' => 'nullable|max:1999',
         ]);
 
         $signup = new Signup;
         $signup->full_name = $request->input('full_name');
         $signup->email = $request->input('email_address');
 
-        $image = empty($request->input('image_file')) ? '' : $request->input('image_file');
-        $signup->original_image = $image;
-        $signup->profile_image = $image;
+        $storedImageName = $this->storeImageAndRetrieveHashName($request);
+
+        $signup->original_image = $storedImageName;
+        $signup->profile_image = $storedImageName;
 
         $signup->save();
 
-        $firstName = explode(' ', $request['full_name'])[0];
-        return view('success', ['name' => $firstName]);
+        return view('success', ['name' => $this->getFirstNameFromFullName($request['full_name'])]);
+    }
+
+    /**
+     * @param Request $request
+     * @return string
+     */
+    function storeImageAndRetrieveHashName(Request $request)
+    {
+        if ($request->hasFile('image_file')) {
+            $path = $request->file('image_file');
+            $path->store('uploads');
+            return $path->hashName();
+        }
+
+        return "";
+    }
+
+    /**
+     * @param string $full_name
+     * @return string
+     */
+    function getFirstNameFromFullName(string $full_name) {
+        return explode(' ', $full_name)[0];
     }
 }

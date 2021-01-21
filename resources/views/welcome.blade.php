@@ -3,7 +3,7 @@
 <div class="header">
     <span class="title">Get Started</span><span class="note">* denotes a required field</span>
 </div>
-<form action="store" method="get" onsubmit="showSpinner()">
+<form action="store" method="post" onsubmit="showSpinner()" enctype="multipart/form-data">
     @csrf
     <div class="form-input">
         <label for="full_name">What’s your name? *

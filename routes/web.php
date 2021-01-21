@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('store', [SignupController::class, 'store']);
+Route::post('store', [SignupController::class, 'store']);
