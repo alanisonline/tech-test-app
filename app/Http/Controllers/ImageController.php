@@ -8,8 +8,11 @@ use Illuminate\Http\Request;
 
 class ImageController extends Controller
 {
+    /**
+     * @var (string|int)[]
+     */
     private $profileDimensions = ['width' => 500, 'height' => 500];
-    
+
     /**
      * @param Request $request
      * @return string
