@@ -19,5 +19,3 @@ Route::get('/', function () {
 });
 
 Route::get('store', [SignupController::class, 'store']);
-
-// Route::post('store', [Controller::class, 'store']);
