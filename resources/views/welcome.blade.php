@@ -3,7 +3,7 @@
 <div class="header">
     <span class="title">Get Started</span><span class="note">* denotes a required field</span>
 </div>
-<form action="store" method="get">
+<form action="store" method="get" onsubmit="showSpinner()">
     @csrf
     <div class="form-input">
         <label for="full_name">What’s your name? *
@@ -29,6 +29,9 @@
     <div class="form-input">
         @include('flashes')
         <input type="submit" value="Submit">
+    </div>
+    <div class="overlay">
+        @include('spinner')
     </div>
 </form>
 @endsection('signup')

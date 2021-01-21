@@ -11,11 +11,14 @@
 </head>
 
 <body class="antialiased">
+
     <div class="container">
         <div class="panel">
             @yield('signup')
         </div>
     </div>
+
+    <script src="{{ URL::asset('/js/spinner.js') }}"></script>
 </body>
 
 </html>
