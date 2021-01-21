@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Signup;
+use App\Http\Controllers\ImageController;
 
 class SignupController extends Controller
 {
@@ -22,37 +23,22 @@ class SignupController extends Controller
         $signup = new Signup;
         $signup->full_name = $request->input('full_name');
         $signup->email_address = $request->input('email_address');
-
-        $storedImageName = $this->storeImageAndRetrieveHashName($request);
-
-        $signup->original_image = $storedImageName;
-        $signup->profile_image = $storedImageName;
+        $imageController = new ImageController();
+        $signup->original_image = $imageController->storeImageAndGetPath($request);
+        $signup->profile_image = $imageController->storeResizedImageAndGetPath($request);
 
         $signup->save();
 
         return view('success', ['name' => $this->getFirstNameFromFullName($request['full_name'])]);
     }
 
-    /**
-     * @param Request $request
-     * @return string
-     */
-    function storeImageAndRetrieveHashName(Request $request)
-    {
-        if ($request->hasFile('image_file')) {
-            $path = $request->file('image_file');
-            $path->store('uploads');
-            return $path->hashName();
-        }
-
-        return "";
-    }
 
     /**
      * @param string $full_name
      * @return string
      */
-    function getFirstNameFromFullName(string $full_name) {
+    function getFirstNameFromFullName(string $full_name)
+    {
         return explode(' ', $full_name)[0];
     }
 }
