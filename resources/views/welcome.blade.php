@@ -30,7 +30,7 @@
         @include('flashes')
         <input type="submit" value="Submit">
     </div>
-    <div class="overlay">
+    <div class="panel overlay">
         @include('spinner')
     </div>
 </form>
